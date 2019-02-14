@@ -1,0 +1,7 @@
+#Thu Feb 14 14:10:30 MSK 2019
+base.0=/filetrash/CommonFiles/STUDIES/Practice2019/android-vision-master/visionSamples/ocr-codelab/ocr-reader-start/app/build/intermediates/transforms/dexMerger/debug/1
+path.1=classes.dex
+renamed.1=classes2.dex
+path.0=classes.dex
+renamed.0=classes.dex
+base.1=/filetrash/CommonFiles/STUDIES/Practice2019/android-vision-master/visionSamples/ocr-codelab/ocr-reader-start/app/build/intermediates/transforms/dexMerger/debug/0
