@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:text="This application is the result of\nresearch activities during practice\nat ITMO University in 2019 in the field\nof Optical Characters Recognition.\n\ngithub.com/dobrosldm"
+        android:text="This application is the result of\nresearch activities during practice\nat ITMO University in 2019 in the field\nof Optical Characters Recognition.\n\nIt could recognize text in any Latin based language: Catalan, Danish, Dutch, English, Finnish, French, German, Hungarian, Italian, Latin, Norwegian, Polish, Portugese, Romanian, Spanish, Swedish, Tagalog and Turkish.\n\ngithub.com/dobrosldm"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="italic" />
