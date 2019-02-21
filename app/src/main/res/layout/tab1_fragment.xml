@@ -17,4 +17,18 @@
 
     </com.google.android.gms.samples.vision.ocrreader.ui.camera.CameraSourcePreview>
 
+    <Switch
+        android:id="@+id/voiceSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/preview"
+        android:layout_marginTop="17dp"
+        android:layout_marginEnd="-234dp"
+        android:layout_toStartOf="@+id/preview"
+        android:textAlignment="center"
+        android:textSize="18sp"
+
+        android:theme="@style/MySwitch"
+        android:thumb="@drawable/switch_thumb" />
+
 </RelativeLayout>

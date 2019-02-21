@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="bottom"
@@ -24,5 +25,19 @@
         android:background="@android:color/holo_red_light"
         android:text="Choose from gallery"
         android:textSize="15sp" />
+
+    <Switch
+        android:id="@+id/voiceSwitch"
+        android:layout_width="238dp"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/preview"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_toStartOf="@+id/preview"
+        android:textAlignment="center"
+        android:textSize="18sp"
+
+        android:theme="@style/MySwitch"
+        android:thumb="@drawable/switch_thumb" />
 
 </LinearLayout>

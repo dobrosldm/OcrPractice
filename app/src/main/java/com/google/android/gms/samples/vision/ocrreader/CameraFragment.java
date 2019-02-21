@@ -27,6 +27,8 @@ import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -42,7 +44,7 @@ import java.util.Locale;
 
 import static android.content.Context.CLIPBOARD_SERVICE;
 
-public class CameraFragment extends Fragment {
+public class CameraFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
     private static final String TAG = "Tab1Fragment";
 
     // Intent request code to handle updating play services if needed.
@@ -62,6 +64,11 @@ public class CameraFragment extends Fragment {
 
     // A TextToSpeech engine for speaking a String value.
     private TextToSpeech tts;
+
+    // Variable to check switch
+    private Switch sw;
+
+    private boolean canSound;
 
     @Nullable
     @Override
@@ -113,6 +120,11 @@ public class CameraFragment extends Fragment {
                     }
                 };
         tts = new TextToSpeech(this.getContext(), listener);
+
+        sw = (Switch) view.findViewById(R.id.voiceSwitch);
+        if (sw != null) {
+            sw.setOnCheckedChangeListener(this);
+        }
 
         return view;
     }
@@ -189,11 +201,22 @@ public class CameraFragment extends Fragment {
         if (graphic != null) {
             text = graphic.getTextBlock();
             if (text != null && text.getValue() != null) {
-                tts.speak(text.getValue(), TextToSpeech.QUEUE_ADD, null, "DEFAULT");
+                if (canSound)
+                    tts.speak(text.getValue(), TextToSpeech.QUEUE_ADD, null, "DEFAULT");
                 copyToClipboard(text.getValue());
             }
         }
         return text != null;
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        Toast.makeText(this.getContext(), (b ?
+                "Voice activated - EN(!) only"
+                :
+                "Voice deactivated"
+        ), Toast.LENGTH_SHORT).show();
+        canSound = b;
     }
 
     private class CaptureGestureListener extends GestureDetector.SimpleOnGestureListener {
@@ -229,9 +252,9 @@ public class CameraFragment extends Fragment {
             ClipboardManager clipboard = (ClipboardManager) context.getSystemService(CLIPBOARD_SERVICE);
             ClipData clip = android.content.ClipData.newPlainText("Label", text);
             clipboard.setPrimaryClip(clip);
-            Toast.makeText(this.getContext(), "Text was copied to clipboard", Toast.LENGTH_LONG).show();
+            Toast.makeText(this.getContext(), "Text was copied to clipboard", Toast.LENGTH_SHORT).show();
         } catch (Exception e) {
-            Toast.makeText(this.getContext(), "Unable to copy text to clipboard", Toast.LENGTH_LONG).show();
+            Toast.makeText(this.getContext(), "Unable to copy text to clipboard", Toast.LENGTH_SHORT).show();
         }
     }
 

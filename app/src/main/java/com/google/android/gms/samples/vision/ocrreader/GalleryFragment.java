@@ -16,7 +16,9 @@ import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +32,7 @@ import java.util.Locale;
 import static android.app.Activity.RESULT_OK;
 import static android.content.Context.CLIPBOARD_SERVICE;
 
-public class GalleryFragment extends Fragment {
+public class GalleryFragment extends Fragment implements CompoundButton.OnCheckedChangeListener {
 
     private static final String TAG = "Tab2Fragment";
 
@@ -41,6 +43,10 @@ public class GalleryFragment extends Fragment {
 
     // A TextToSpeech engine for speaking a String value.
     private TextToSpeech tts;
+
+    private Switch sw;
+
+    private boolean canSound;
 
     @Nullable
     @Override
@@ -54,12 +60,13 @@ public class GalleryFragment extends Fragment {
         view.findViewById(R.id.detected_text).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                tts.speak(value, TextToSpeech.QUEUE_ADD, null, "DEFAULT");
+                if (canSound)
+                    tts.speak(value, TextToSpeech.QUEUE_ADD, null, "DEFAULT");
 
                 ClipboardManager clipboard = (ClipboardManager) getContext().getSystemService(CLIPBOARD_SERVICE);
                 ClipData clip = android.content.ClipData.newPlainText("Label", value);
                 clipboard.setPrimaryClip(clip);
-                Toast.makeText(getContext(), "Text was copied to clipboard", Toast.LENGTH_LONG).show();
+                Toast.makeText(getContext(), "Text was copied to clipboard", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -83,6 +90,11 @@ public class GalleryFragment extends Fragment {
                     }
                 };
         tts = new TextToSpeech(this.getContext(), listener);
+
+        sw = (Switch) view.findViewById(R.id.voiceSwitch);
+        if (sw != null) {
+            sw.setOnCheckedChangeListener(this);
+        }
 
         return view;
     }
@@ -132,5 +144,15 @@ public class GalleryFragment extends Fragment {
                 textRecognizer.release();
             }
         }
+    }
+
+    @Override
+    public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
+        Toast.makeText(this.getContext(), (b ?
+                "Voice activated - EN(!) only"
+                :
+                "Voice deactivated"
+        ), Toast.LENGTH_SHORT).show();
+        canSound = b;
     }
 }

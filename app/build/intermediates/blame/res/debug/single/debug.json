@@ -1028,6 +1028,10 @@
         "source": "/home/dmitry/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d9a12b66d46418d173d319939eddaff8/res/drawable-xhdpi-v4/abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
+        "merged": "/filetrash/CommonFiles/STUDIES/Practice2019/ocr-reader/app/build/intermediates/res/merged/debug/drawable-hdpi_switch_thumb.xml.flat",
+        "source": "/filetrash/CommonFiles/STUDIES/Practice2019/ocr-reader/app/src/main/res/drawable-hdpi/switch_thumb.xml"
+    },
+    {
         "merged": "/filetrash/CommonFiles/STUDIES/Practice2019/ocr-reader/app/build/intermediates/res/merged/debug/drawable-xxxhdpi-v4_abc_ic_star_black_16dp.png.flat",
         "source": "/home/dmitry/.gradle/caches/transforms-1/files-1.1/appcompat-v7-27.1.1.aar/d9a12b66d46418d173d319939eddaff8/res/drawable-xxxhdpi-v4/abc_ic_star_black_16dp.png"
     },

@@ -1,11 +1,11 @@
 #Internal package file, do not edit.
-#Thu Feb 14 14:10:30 MSK 2019
-1.base=/filetrash/CommonFiles/STUDIES/Practice2019/android-vision-master/visionSamples/ocr-codelab/ocr-reader-start/app/build/intermediates/transforms/dexMerger/debug/0
+#Thu Feb 21 11:30:23 MSK 2019
+1.base=/filetrash/CommonFiles/STUDIES/Practice2019/ocr-reader/app/build/intermediates/transforms/dexMerger/debug/1
 0.baseType=DIRECTORY
 1.baseType=DIRECTORY
 count=2
 1.set=DEX
 0.path=classes.dex
 0.set=DEX
-0.base=/filetrash/CommonFiles/STUDIES/Practice2019/android-vision-master/visionSamples/ocr-codelab/ocr-reader-start/app/build/intermediates/transforms/dexMerger/debug/1
+0.base=/filetrash/CommonFiles/STUDIES/Practice2019/ocr-reader/app/build/intermediates/transforms/dexMerger/debug/0
 1.path=classes.dex
